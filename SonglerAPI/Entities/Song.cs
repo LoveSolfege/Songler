@@ -20,5 +20,6 @@ public class Song
 	
 	[ForeignKey("GradeId")]
 	public int? GradeId { get; set; }
+	public Grade Grade { get; set; }
 	public bool IsDeleted { get; set; } = false;
 }
