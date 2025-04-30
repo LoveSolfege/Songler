@@ -1,0 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using SonglerAPI.Repository;
+
+namespace SonglerAPI.Endpoints.General;
+
+public static class EndpointBase
+{
+	public static RouteGroupBuilder MapCrudEndpoints<TEntity>(
+		this WebApplication app,
+		string route,
+		string tag,
+		Func<SongContext, DbSet<TEntity>> getDbSet)
+		where TEntity : class
+	{
+		var group = app.MapGroup(route).WithTags(tag);
+		
+		//GET all entries
+		group.MapGet("/", async (SongContext ctx)=> 
+			await getDbSet(ctx).ToListAsync());
+		
+		return group;
+	}
+}

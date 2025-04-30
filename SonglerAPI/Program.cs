@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
+using SonglerAPI.DTO;
+using SonglerAPI.Endpoints;
 using SonglerAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +14,15 @@ builder.Services.AddControllers()
 //Sqlite connection string and registering Db Context in DI container
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<SongContext>(opts => opts.UseSqlite(connectionString!));
+//Automapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+
+//Map endpoints 
+app.MapSongEndpoints();
+app.MapAlbumEndpoints();
+app.MapArtistEndpoints();
 
 app.Run();
