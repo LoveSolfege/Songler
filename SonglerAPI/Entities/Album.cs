@@ -3,16 +3,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SonglerAPI.Entities;
 
-public class Album
+public class Album : IEntity
 {
 	[Key]
-	public int AlbumId { get; set; }
+	public int Id { get; set; }
 	
 	[Required]
 	[MaxLength(250)]
 	public string Title { get; set; }
 	
-	[ForeignKey("ArtistId")]
+	[ForeignKey("Artist")]
 	public int ArtistId { get; set; }
 	
 	[Required]

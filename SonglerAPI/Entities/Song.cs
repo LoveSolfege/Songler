@@ -3,22 +3,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SonglerAPI.Entities;
 
-public class Song
+public class Song : IEntity
 {
 	[Key]
-	public int SongId { get; set; }
+	public int Id { get; set; }
 	
 	[Required]
 	[MaxLength(250)]
 	public string Title { get; set; }
 	
-	[ForeignKey("AlbumId")]
+	[ForeignKey("Album")]
 	public int AlbumId { get; set; }
 	
 	[Required]
 	public Album Album { get; set; }
 	
-	[ForeignKey("GradeId")]
+	[ForeignKey("Grade")]
 	public int? GradeId { get; set; }
 	public Grade Grade { get; set; }
 	public bool IsDeleted { get; set; } = false;

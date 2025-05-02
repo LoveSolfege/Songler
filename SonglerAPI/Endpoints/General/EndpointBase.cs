@@ -28,7 +28,7 @@ public static class EndpointBase
 		});
 
 		
-		//GET enty by ID
+		//GET entry by ID
 		group.MapGet("/{id:int}", async (int id, SongContext ctx, IMapper mapper) =>
 		{
 			var entity = await getDbSet(ctx)

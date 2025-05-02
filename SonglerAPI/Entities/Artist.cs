@@ -2,9 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SonglerAPI.Entities;
 
-public class Artist
+public class Artist : IEntity
 {
-	public int ArtistId { get; set; }
+	[Key]
+	public int Id { get; set; }
 	
 	[Required]
 	[MaxLength(250)]
