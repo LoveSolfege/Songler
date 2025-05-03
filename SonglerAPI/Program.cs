@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SonglerAPI.DTO;
 using SonglerAPI.Endpoints;
 using SonglerAPI.Repository;
+using SonglerAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<SongContext>(opts => opts.UseSqlite(connectionString!));
 //Automapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+//Command Service for Endpoints
+builder.Services.AddScoped(typeof(IGenericEntityCommandService<,,>), typeof(GenericEntityCommandService<,,>));
 
 //
 var app = builder.Build();
