@@ -1,13 +1,11 @@
-using SonglerAPI.DTO.Create;
-using SonglerAPI.DTO.Response;
-using SonglerAPI.Entities;
-
 namespace SonglerAPI.Endpoints;
 
 public static class AlbumEndpoints
 {
-	public static void MapAlbumEndpoints(this WebApplication app)
+	public static WebApplication MapAlbumEndpoints(this WebApplication app)
 	{
-		
+		var group = app.MapGroup("/artists/{artistsId}/albums");
+
+		return app;
 	}
 }

@@ -33,9 +33,10 @@ if (!app.Environment.IsDevelopment())
 app.UseStatusCodePages();
 //
 
-//Map endpoints 
-app.MapSongEndpoints();
-app.MapAlbumEndpoints();
-app.MapArtistEndpoints();
+app.MapArtistEndpoints()
+	.MapAlbumEndpoints()
+	.MapSongEndpoints()
+	.MapGradeEndpoints();
+
 
 app.Run();
