@@ -11,4 +11,6 @@ public class AlbumCreateDto
     [Required(ErrorMessage = "Artist ID is required.")]
     [Range(1, int.MaxValue, ErrorMessage = "Artist ID must be a positive integer.")]
     public int ArtistId { get; set; }
+    
+    public ICollection<SongCreateDto>? Songs { get; set; }
 }
