@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonglerAPI", "SonglerAPI\SonglerAPI.csproj", "{338B8F72-F736-46F4-95B1-23FD43892D60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonglerAPI.Tests", "SonglerAPI.Tests\SonglerAPI.Tests.csproj", "{CAF7E727-B156-4B1B-BF93-2694C08A7A2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{338B8F72-F736-46F4-95B1-23FD43892D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{338B8F72-F736-46F4-95B1-23FD43892D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{338B8F72-F736-46F4-95B1-23FD43892D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF7E727-B156-4B1B-BF93-2694C08A7A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF7E727-B156-4B1B-BF93-2694C08A7A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF7E727-B156-4B1B-BF93-2694C08A7A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF7E727-B156-4B1B-BF93-2694C08A7A2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
