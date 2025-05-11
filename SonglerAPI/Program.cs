@@ -20,9 +20,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<SongContext>(opts => opts.UseSqlite(connectionString!));
 //Automapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-//Command Service for Endpoints
-builder.Services.AddScoped(typeof(IGenericEntityCommandService<,,>), typeof(GenericEntityCommandService<,,>));
-
+//Services
+builder.Services.AddScoped<ArtistEndpointService>();
 //
 var app = builder.Build();
 //
