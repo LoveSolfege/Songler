@@ -10,16 +10,19 @@ public class Song
 	
     [Required]
     [MaxLength(250)]
-    public string Title { get; set; }
+    public string Title { get; set; } = null!;
 	
+    public int ArtistId { get; set; }
+    
     [ForeignKey("Album")]
     public int AlbumId { get; set; }
 	
     [Required]
-    public Album Album { get; set; }
+    public Album Album { get; set; } = null!;
 	
     [ForeignKey("Grade")]
     public int? GradeId { get; set; }
-    public Grade Grade { get; set; }
+    
+    public Grade? Grade { get; set; }
     public bool IsDeleted { get; set; } = false;
 }
