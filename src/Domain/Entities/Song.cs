@@ -12,7 +12,11 @@ public class Song
     [MaxLength(250)]
     public string Title { get; set; } = null!;
 	
+    [ForeignKey("Artist")]
     public int ArtistId { get; set; }
+    
+    [Required]
+    public Artist Artist { get; set; } = null!;
     
     [ForeignKey("Album")]
     public int AlbumId { get; set; }
