@@ -2,7 +2,7 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Persistance.Configuration;
+namespace Infrastructure.Persistence.Configuration;
 
 public class SongConfig : IEntityTypeConfiguration<Song>
 {
