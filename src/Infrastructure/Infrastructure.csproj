@@ -6,8 +6,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persistance\Migrations\" />
-    <Folder Include="Persistance\Repositories\" />
+    <Folder Include="Data\" />
+    <Folder Include="Persistence\Migrations\" />
+    <Folder Include="Persistence\Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
