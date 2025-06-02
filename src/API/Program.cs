@@ -15,6 +15,8 @@ builder.Services.AddProblemDetails();
 
 builder.Services.AddMediatR(Application.AssemblyReference.Assembly);
 
+builder.Services.AddAutoMapper(Application.AssemblyReference.Assembly);
+
 builder.Services.AddDbContext<SongDbContext>(options => 
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
