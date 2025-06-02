@@ -3,14 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities;
 
-public class Album
+public class Album : BaseEntity
 {
-    [Key]
-    public int Id { get; set; }
 
     [Required] [MaxLength(250)] 
     public string Title { get; set; } = null!;
-	
     
     [ForeignKey("Artist")]
     public int ArtistId { get; set; }

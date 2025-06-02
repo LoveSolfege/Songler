@@ -2,11 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entities;
 
-public class Artist
+public class Artist : BaseEntity
 {
-    [Key]
-    public int Id { get; set; }
-    
     [Required] [MaxLength(250)] 
     public string Name { get; set; } = null!;
     
