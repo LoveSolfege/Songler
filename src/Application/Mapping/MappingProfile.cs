@@ -3,7 +3,7 @@ using Application.DTO.Response;
 using AutoMapper;
 using Domain.Entities;
 
-namespace Application.DTO;
+namespace Application.Mapping;
 
 public class MappingProfile : Profile
 {
