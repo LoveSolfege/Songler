@@ -8,5 +8,4 @@ public class Artist : BaseEntity
     public string Name { get; set; } = null!;
     
     public ICollection<Album> Albums { get; set; } = null!;
-    public bool IsDeleted { get; set; } = false;
 }

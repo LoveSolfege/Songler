@@ -16,5 +16,4 @@ public class Album : BaseEntity
     public Artist Artist { get; set; } = null!;
 	
     public ICollection<Song> Songs { get; set; } = null!;
-    public bool IsDeleted { get; set; } = false;
 }

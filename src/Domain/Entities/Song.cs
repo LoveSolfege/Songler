@@ -26,5 +26,4 @@ public class Song : BaseEntity
     public int? GradeId { get; set; }
     
     public Grade? Grade { get; set; }
-    public bool IsDeleted { get; set; } = false;
 }

@@ -7,5 +7,4 @@ public class Grade : BaseEntity
     [Required]
     [MaxLength(10)]
     public string Letter { get; set; } = null!;
-    public bool IsDeleted { get; set; } = false;
 }
