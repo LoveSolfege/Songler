@@ -1,6 +1,5 @@
 using Domain.Entities;
 using Domain.Interfaces;
-using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence;
@@ -15,10 +14,10 @@ public class UnitOfWork : IUnitOfWork
 
     public UnitOfWork(
         DbContext context,
-        ArtistRepository artists,
-        AlbumRepository albums,
-        SongRepository songs,
-        GradeRepository grades)
+        Repository<Artist> artists,
+        Repository<Album> albums,
+        Repository<Song> songs,
+        Repository<Grade> grades)
     {
         _context = context;
         Artists = artists;
