@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Domain.Entities;
 
@@ -13,7 +14,7 @@ public class Album : BaseEntity
     public int ArtistId { get; set; }
 
     [Required] 
-    public Artist Artist { get; set; } = null!;
+    public Artist? Artist { get; set; } = null!;
 	
     public ICollection<Song>? Songs { get; set; }
 }
