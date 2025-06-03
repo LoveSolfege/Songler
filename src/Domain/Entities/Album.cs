@@ -15,5 +15,5 @@ public class Album : BaseEntity
     [Required] 
     public Artist Artist { get; set; } = null!;
 	
-    public ICollection<Song> Songs { get; set; } = null!;
+    public ICollection<Song>? Songs { get; set; }
 }

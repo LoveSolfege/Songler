@@ -7,5 +7,5 @@ public class Artist : BaseEntity
     [Required] [MaxLength(250)] 
     public string Name { get; set; } = null!;
     
-    public ICollection<Album> Albums { get; set; } = null!;
+    public ICollection<Album>? Albums { get; set; }
 }
