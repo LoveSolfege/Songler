@@ -6,11 +6,14 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Queries\" />
+    <Folder Include="Commands\Delete\" />
+    <Folder Include="Commands\Update\" />
+    <Folder Include="Queries\GetAll\" />
+    <Folder Include="Queries\GetByID\" />
   </ItemGroup>
 
   <PropertyGroup>
