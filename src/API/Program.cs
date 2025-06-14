@@ -14,11 +14,18 @@ builder.Services.AddProblemDetails();
 //        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 // Add mediatr
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(Application.AssemblyReference.Assembly);
+});
+    
 // Add automapper
 builder.Services.AddAutoMapper(Application.AssemblyReference.Assembly);
 // Add DbContext
 builder.Services.AddDbContext<SongDbContext>(options => 
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add Unit Of Work
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 // Add Repositories
 builder.Services.AddScoped<IRepository<Artist>, Repository<Artist>>();
 builder.Services.AddScoped<IRepository<Album>, Repository<Album>>();
