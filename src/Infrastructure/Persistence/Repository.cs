@@ -15,12 +15,12 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         _dbSet = _context.Set<TEntity>();
     }
 
-    public async Task<IReadOnlyList<TEntity>?> GetAllAsync()
+    public async Task<IEnumerable<TEntity>?> GetAllAsync(int page, int pageSize)
     {
         return await _dbSet.ToListAsync();    
     }
 
-    public async Task<TEntity?> GetByIdAsync(int id)
+    public async Task<TEntity?> GetByIdAsync(string id)
     {
         return await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
     }
@@ -31,7 +31,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return entity;
     }
 
-    public async Task<bool> UpdateAsync(int id, TEntity entity)
+    public async Task<bool> UpdateAsync(string id, TEntity entity)
     {
         var entry = await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
         if(entry is null) return false;
@@ -40,7 +40,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return true;
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(string id)
     {
         var entry = await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
         if(entry is null) return false;
