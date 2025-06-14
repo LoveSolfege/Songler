@@ -14,7 +14,6 @@ builder.Services.AddProblemDetails();
 //        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 // Add mediatr
-builder.Services.AddMediatR(Application.AssemblyReference.Assembly);
 // Add automapper
 builder.Services.AddAutoMapper(Application.AssemblyReference.Assembly);
 // Add DbContext
