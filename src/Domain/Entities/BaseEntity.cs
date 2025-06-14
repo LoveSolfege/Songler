@@ -4,8 +4,7 @@ namespace Domain.Entities;
 
 public class BaseEntity
 {
-    [Key]
-    public int Id { get; set; }
-    
+    [Key] 
+    public string Id { get; set; } = null!;
     public bool IsDeleted { get; set; }
 }
