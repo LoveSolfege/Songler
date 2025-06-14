@@ -12,9 +12,4 @@ public class Album : BaseEntity
     
     [ForeignKey("Artist")]
     public int ArtistId { get; set; }
-
-    [Required] 
-    public Artist? Artist { get; set; } = null!;
-	
-    public ICollection<Song>? Songs { get; set; }
 }

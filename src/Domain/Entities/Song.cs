@@ -13,17 +13,9 @@ public class Song : BaseEntity
     [ForeignKey("Artist")]
     public int ArtistId { get; set; }
     
-    [Required]
-    public Artist? Artist { get; set; }
-    
     [ForeignKey("Album")]
     public int AlbumId { get; set; }
 	
-    [Required]
-    public Album? Album { get; set; }
-	
     [ForeignKey("Grade")]
     public int? GradeId { get; set; }
-    
-    public Grade? Grade { get; set; }
 }
