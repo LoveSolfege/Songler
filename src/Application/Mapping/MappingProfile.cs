@@ -9,30 +9,17 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        
         //Artist Mappings
         CreateMap<ArtistCreateDto, Artist>();
-        CreateMap<Artist, ArtistResponseDto>()
-            .ForMember(dest => dest.Albums, opt => 
-                opt.MapFrom(src => src.Albums));
+        CreateMap<Artist, ArtistResponseDto>();
         
         //Album mappings
         CreateMap<AlbumCreateDto, Album>();
-        CreateMap<Album, AlbumResponseDto>()
-            .ForMember(dest => dest.ArtistName,
-                opt => opt.MapFrom(src => src.Artist.Name))
-            .ForMember(dest => dest.Songs,
-                opt => opt.MapFrom(src => src.Songs));
+        CreateMap<Album, AlbumResponseDto>();
 		
         //Song mappings
         CreateMap<SongCreateDto, Song>();
-        CreateMap<Song, SongResponseDto>()
-            .ForMember(dest => dest.ArtistName, opt =>
-                opt.MapFrom(src => src.Artist.Name))
-            .ForMember(dest => dest.AlbumTitle, opt => 
-                opt.MapFrom(src => src.Album.Title))
-            .ForMember(dest => dest.GradeLetter, opt => 
-                opt.MapFrom(src => src.Grade.Letter));
+        CreateMap<Song, SongResponseDto>();
 		
         //Grade Mappings
         CreateMap<GradeCreateDto, Grade>();
