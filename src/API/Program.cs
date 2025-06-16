@@ -1,13 +1,20 @@
 using Domain.Entities;
 using Domain.Interfaces;
+using Infrastructure.Dependency_Injection;
 using Infrastructure.Persistence;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
 
+// read .env
+DotNetEnv.Env.Load();
+builder.Configuration.AddEnvironmentVariables();
+
+// Add PostgresDb
+builder.Services.AddPostgres(builder.Configuration);
+
+// Add mediatr
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(Application.AssemblyReference.Assembly);
