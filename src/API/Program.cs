@@ -8,12 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
 
-// Ignore loops in EF entities
-//builder.Services.AddControllers()
-//    .AddJsonOptions(options => 
-//        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
-// Add mediatr
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(Application.AssemblyReference.Assembly);
@@ -21,9 +15,6 @@ builder.Services.AddMediatR(cfg =>
     
 // Add automapper
 builder.Services.AddAutoMapper(Application.AssemblyReference.Assembly);
-// Add DbContext
-builder.Services.AddDbContext<SongDbContext>(options => 
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Add Unit Of Work
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 // Add Repositories
