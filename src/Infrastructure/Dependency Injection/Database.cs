@@ -16,13 +16,13 @@ public static class Database
         services.AddDbContext<SongDbContext>((sp, options) =>
         {
             var settings = sp.GetService<IOptions<PostgresSettings>>();
-
+    
             if (settings is null)
             {
                 throw new NullReferenceException("PostgresSettings is null");
             }
 
-            options.UseNpgsql(settings.Value.TESTING_PASSWORD);
+            options.UseNpgsql(settings.Value.TESTING_PASSWORD, npgsql => npgsql.MigrationsAssembly(AssemblyReference.Assembly));
         });
         
         return services;
