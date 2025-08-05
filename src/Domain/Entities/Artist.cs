@@ -1,9 +1,11 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Domain.Entities;
 
-public class Artist : BaseEntity
+public class Artist : IEntity, IDeletable
 {
-    [Required] [MaxLength(250)] 
-    public string Name { get; set; } = null!;
+    public Guid Id { get; set; }
+    public string ArtistName { get; set; } = null!;
+    public DateTime TimeAdded { get; set; } = DateTime.UtcNow;
+    public bool IsDeleted { get; set; }
+    public ICollection<Album> Albums { get; set; } = [];
+    public ICollection<UserHiddenArtist> UserHiddenArtists { get; set; } = [];
 }

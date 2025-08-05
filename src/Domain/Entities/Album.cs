@@ -1,15 +1,15 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
-
 namespace Domain.Entities;
 
-public class Album : BaseEntity
+public class Album : IEntity, IDeletable
 {
-
-    [Required] [MaxLength(250)] 
-    public string Title { get; set; } = null!;
+    public Guid Id { get; set; }
+    public string AlbumTitle { get; set; } = null!;
+    public DateTime DateCreated { get; set; } = DateTime.UtcNow;
     
-    [ForeignKey("Artist")]
-    public int ArtistId { get; set; }
+    public bool IsDeleted { get; set; }
+    
+    public ICollection<Song> Songs { get; set; } = [];
+    public ICollection<UserHiddenAlbum> UserHiddenAlbums { get; set; } = [];
+    public Guid ArtistId { get; set; }
+    public Artist Artist { get; set; } = null!;
 }
