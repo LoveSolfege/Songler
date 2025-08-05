@@ -1,0 +1,14 @@
+namespace Domain.Entities;
+
+public class UserHiddenArtist : IEntity
+{
+    public Guid Id { get; set; }
+    
+    public DateTime DateHidden { get; set; } = DateTime.UtcNow;
+    
+    public Guid UserId { get; set; }
+    public Guid ArtistId { get; set; }
+
+    public User User { get; set; } = null!;
+    public Artist Artist { get; set; } = null!;
+}
