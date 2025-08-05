@@ -4,15 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence;
 
-public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity 
+public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
 {
-    private readonly SongDbContext _context;
     private readonly DbSet<TEntity> _dbSet;
 
     public Repository(SongDbContext context)
     {
-        _context = context;
-        _dbSet = _context.Set<TEntity>();
+        _dbSet = context.Set<TEntity>();
     }
 
     public async Task<IEnumerable<TEntity>?> GetAllAsync(int page, int pageSize)
@@ -20,7 +18,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return await _dbSet.ToListAsync();    
     }
 
-    public async Task<TEntity?> GetByIdAsync(string id)
+    public async Task<TEntity?> GetByIdAsync(Guid id)
     {
         return await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
     }
@@ -31,7 +29,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return entity;
     }
 
-    public async Task<bool> UpdateAsync(string id, TEntity entity)
+    public async Task<bool> UpdateAsync(Guid id, TEntity entity)
     {
         var entry = await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
         if(entry is null) return false;
@@ -40,13 +38,19 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return true;
     }
 
-    public async Task<bool> DeleteAsync(string id)
+    public async Task<bool> DeleteAsync(Guid id)
     {
-        var entry = await _dbSet.FirstOrDefaultAsync(e => e.Id == id);
-        if(entry is null) return false;
-        
-        entry.IsDeleted = true;
-        return true;
+        var entry = await _dbSet.FindAsync(id);
+        switch (entry)
+        {
+            case null:
+                return false;
+            case IDeletable deletable:
+                deletable.IsDeleted = true;
+                return true;
+            default:
+                throw new InvalidOperationException($"Entity of type '{typeof(TEntity).Name}' with ID '{id}' does not support soft deletion.");
+        }
     }
     
 }
