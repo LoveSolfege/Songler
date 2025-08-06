@@ -9,20 +9,21 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<Artist> Artists { get; }
     public IRepository<Album> Albums { get; }
     public IRepository<Song> Songs { get; }
-    public IRepository<Grade> Grades { get; }
+    public IRepository<User> Users { get; }
+    
 
     public UnitOfWork(
         SongDbContext context,
         IRepository<Artist> artists,
         IRepository<Album> albums,
         IRepository<Song> songs,
-        IRepository<Grade> grades)
+        IRepository<User> users)
     {
         _context = context;
         Artists = artists;
         Albums = albums;
         Songs = songs;
-        Grades = grades;
+        Users = users;
     }
 
     public Task<int> SaveChangesAsync(CancellationToken ct = default)
