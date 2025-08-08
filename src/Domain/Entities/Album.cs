@@ -4,7 +4,7 @@ public class Album : IEntity, IDeletable
 {
     public Guid Id { get; set; }
     public string AlbumTitle { get; set; } = null!;
-    public DateTime DateCreated { get; set; } = DateTime.UtcNow;
+    public DateTime TimeAdded { get; set; } = DateTime.UtcNow;
     
     public bool IsDeleted { get; set; }
     

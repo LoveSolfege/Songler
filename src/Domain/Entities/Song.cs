@@ -8,7 +8,7 @@ public class Song : IEntity, IDeletable
     public bool IsDeleted { get; set; }
 
     public ICollection<UserHiddenSong> UserHiddenSongs { get; set; } = [];
-    public ICollection<UserRatedSongs> UserRatedSongs { get; set; } = [];
+    public ICollection<UserRatedSong> UserRatedSongs { get; set; } = [];
     public Guid AlbumId { get; set; }
     public Album Album { get; set; } = null!;
 }

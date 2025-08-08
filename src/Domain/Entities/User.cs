@@ -17,7 +17,7 @@ public class User : IEntity, IDeletable
     public ICollection<UserHiddenArtist> HiddenArtists { get; set; } = [];
     public ICollection<UserHiddenAlbum> HiddenAlbums { get; set; } = [];
     public ICollection<UserHiddenSong> HiddenSongs { get; set; } = [];
-    public ICollection<UserRatedSongs> RatedSongs { get; set; } = [];
+    public ICollection<UserRatedSong> RatedSongs { get; set; } = [];
 }
 
 public enum Role
