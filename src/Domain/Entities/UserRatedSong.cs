@@ -1,9 +1,8 @@
 namespace Domain.Entities;
 
-public class UserRatedSongs : IEntity
+public class UserRatedSong
 {
-    public Guid Id { get; set; }
-    public int Rating { get; set; }
+    public int? Rating { get; set; }
     public DateTime RatedOn { get; set; } = DateTime.UtcNow;
     
     public Guid UserId { get; set; }

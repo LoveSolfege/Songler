@@ -1,9 +1,7 @@
 namespace Domain.Entities;
 
-public class UserHiddenArtist : IEntity
+public class UserHiddenArtist
 {
-    public Guid Id { get; set; }
-    
     public DateTime DateHidden { get; set; } = DateTime.UtcNow;
     
     public Guid UserId { get; set; }
