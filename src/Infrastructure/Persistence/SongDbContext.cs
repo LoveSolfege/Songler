@@ -10,12 +10,14 @@ public class SongDbContext : DbContext
     public DbSet<Artist> Artists => Set<Artist>();
     public DbSet<Album> Albums => Set<Album>();
     public DbSet<Song> Songs => Set<Song>();
-    public DbSet<Grade> Grades => Set<Grade>();
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
         
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(SongDbContext).Assembly);
+        modelBuilder.HasPostgresEnum<Role>();
+
+        modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
     }
 }
