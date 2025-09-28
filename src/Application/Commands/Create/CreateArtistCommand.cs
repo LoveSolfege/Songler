@@ -1,5 +1,4 @@
-using Application.DTO.Create;
-using Application.DTO.Response;
+using Application.DTO;
 using Domain.Entities;
 using MediatR;
 
@@ -14,3 +13,4 @@ public class CreateArtistCommand : IRequest<ArtistResponseDto>
         Artist = dto;
     }
 }
+
